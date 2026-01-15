@@ -1,3 +1,78 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f9ff;
+  color: #031B4E;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #031B4E, #0061EB);
+  color: white;
+  text-align: center;
+  padding: 80px 20px 50px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero .tagline {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* Main app container */
+.app-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+/* Chatbot Left */
+.chat-left {
+  width: 50%;
+  background: #f0f5ff;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.chat-left h2 {
+  margin-bottom: 15px;
+}
+
+.chat-left p {
+  margin-bottom: 20px;
+}
+
+/* Info Right */
+.info-right {
+  width: 50%;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.info-right h2 {
+  margin-bottom: 20px;
+}
+
+.info-right ul li {
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
+
 /* Password overlay */
 #auth-overlay {
   position: fixed;
@@ -42,5 +117,15 @@
 
 .hidden {
   display: none;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+  .app-container {
+    flex-direction: column;
+  }
+  .chat-left, .info-right {
+    width: 100%;
+  }
 }
 
