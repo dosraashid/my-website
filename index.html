@@ -8,39 +8,52 @@
 </head>
 <body>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Blue Horizon</h1>
-      <p class="tagline">Simple ideas. Thoughtful technology.</p>
+  <!-- Password Gate -->
+  <div id="auth-overlay">
+    <div class="auth-box">
+      <h2>Protected Area</h2>
+      <p>Please enter the password to continue</p>
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="checkPassword()">Enter</button>
+      <p id="error">Incorrect password</p>
     </div>
-  </header>
+  </div>
 
-  <main class="container">
-    <section class="quote-card">
-      <p class="quote">
-        “The best way to predict the future is to build it.”
-      </p>
-      <p class="author">— Alan Kay</p>
-    </section>
+  <!-- Website Content -->
+  <div id="site-content" class="hidden">
 
-    <section class="about">
-      <h2>Why this space exists</h2>
-      <p>
-        This is a quiet corner of the internet designed for clarity,
-        curiosity, and meaningful conversations. Technology should feel
-        human — simple, helpful, and calm.
-      </p>
-      <p>
-        If you have a question, an idea, or just want to explore,
-        the assistant in the corner is always ready.
-      </p>
-    </section>
-  </main>
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Blue Horizon</h1>
+        <p class="tagline">Simple ideas. Thoughtful technology.</p>
+      </div>
+    </header>
 
-  <footer>
-    <p>© 2026 Blue Horizon</p>
-  </footer>
+    <main class="container">
+      <section class="quote-card">
+        <p class="quote">
+          “The best way to predict the future is to build it.”
+        </p>
+        <p class="author">— Alan Kay</p>
+      </section>
 
+      <section class="about">
+        <h2>Why this space exists</h2>
+        <p>
+          This is a quiet corner of the internet designed for clarity,
+          curiosity, and meaningful conversations.
+        </p>
+        <p>
+          The assistant in the corner is always ready to help.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Blue Horizon</p>
+    </footer>
+
+  </div>
   <!-- Chatbot Widget -->
 
 <script async
@@ -54,6 +67,31 @@
   data-starting-message="Hello! How can I help you today?"
   data-logo="/static/chatbot/icons/default-agent.svg">
 </script>
+
+<!-- Auth Script -->
+  <script>
+    const PASSWORD = "letmein123"; // 🔐 CHANGE THIS
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (input === PASSWORD) {
+        document.getElementById("auth-overlay").style.display = "none";
+        document.getElementById("site-content").classList.remove("hidden");
+        sessionStorage.setItem("authenticated", "true");
+      } else {
+        error.style.display = "block";
+      }
+    }
+
+    // Remember during session
+    if (sessionStorage.getItem("authenticated") === "true") {
+      document.getElementById("auth-overlay").style.display = "none";
+      document.getElementById("site-content").classList.remove("hidden");
+    }
+  </script>
+
 
 </body>
 </html>
