@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Blue Horizon</title>
+  <title>QueryBlue — Ask Databases in Plain English</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,72 +11,47 @@
   <!-- Password Gate -->
   <div id="auth-overlay">
     <div class="auth-box">
-      <h2>Protected Area</h2>
-      <p>Please enter the password to continue</p>
+      <h2>Protected Access</h2>
+      <p>Enter password to continue to QueryBlue</p>
       <input type="password" id="password" placeholder="Password">
       <button onclick="checkPassword()">Enter</button>
       <p id="error">Incorrect password</p>
     </div>
   </div>
 
-  <!-- Website Content -->
+  <!-- Landing Page Content -->
   <div id="site-content" class="hidden">
-
     <header class="hero">
-      <div class="hero-content">
-        <h1>Blue Horizon</h1>
-        <p class="tagline">Simple ideas. Thoughtful technology.</p>
-      </div>
+      <h1>QueryBlue</h1>
+      <p class="tagline">Ask your database questions in plain English.</p>
+      <button class="cta" onclick="location.href='app.html'">Try it Now</button>
     </header>
 
     <main class="container">
-      <section class="quote-card">
-        <p class="quote">
-          “The best way to predict the future is to build it.”
-        </p>
-        <p class="author">— Alan Kay</p>
-      </section>
-
-      <section class="about">
-        <h2>Why this space exists</h2>
-        <p>
-          This is a quiet corner of the internet designed for clarity,
-          curiosity, and meaningful conversations.
-        </p>
-        <p>
-          The assistant in the corner is always ready to help.
-        </p>
+      <section class="value">
+        <h2>Why QueryBlue?</h2>
+        <ul class="examples">
+          <li>Quickly explore your data without SQL</li>
+          <li>Get insights from multiple tables at once</li>
+          <li>Perfect for analysts, product managers, and developers</li>
+        </ul>
       </section>
     </main>
 
     <footer>
-      <p>© 2026 Blue Horizon</p>
+      <p>© 2026 QueryBlue</p>
     </footer>
-
   </div>
-  <!-- Chatbot Widget -->
 
-<script async
-  src="https://ull5idqhio7rjc52vhi7ighb.agents.do-ai.run/static/chatbot/widget.js"
-  data-agent-id="d4668138-ed5b-11f0-b074-4e013e2ddde4"
-  data-chatbot-id="Y36J85ed5CXU4r7XdIk_W7Lf_5oIunSl"
-  data-name="shamim-testing-db Chatbot"
-  data-primary-color="#031B4E"
-  data-secondary-color="#E5E8ED"
-  data-button-background-color="#0061EB"
-  data-starting-message="Hello! How can I help you today?"
-  data-logo="/static/chatbot/icons/default-agent.svg">
-</script>
-
-<!-- Auth Script -->
+  <!-- Password Gate Script -->
   <script>
-    const PASSWORD = "letmein123"; // 🔐 CHANGE THIS
+    const PASSWORD = "letmein123"; // 🔐 Change this
 
     function checkPassword() {
       const input = document.getElementById("password").value;
       const error = document.getElementById("error");
 
-      if (input === PASSWORD) {
+      if(input === PASSWORD){
         document.getElementById("auth-overlay").style.display = "none";
         document.getElementById("site-content").classList.remove("hidden");
         sessionStorage.setItem("authenticated", "true");
@@ -85,14 +60,12 @@
       }
     }
 
-    // Remember during session
-    if (sessionStorage.getItem("authenticated") === "true") {
+    // Remember session
+    if(sessionStorage.getItem("authenticated") === "true"){
       document.getElementById("auth-overlay").style.display = "none";
       document.getElementById("site-content").classList.remove("hidden");
     }
   </script>
 
-
 </body>
 </html>
-
