@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QueryBlue — Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="auth-overlay" style="display:flex;">
+    <div class="auth-box">
+      <h2>Protected Access</h2>
+      <p>Enter password to continue to QueryBlue</p>
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="checkPassword()">Enter</button>
+      <p id="error" style="display:none;color:red;">Incorrect password</p>
+    </div>
+  </div>
+
+  <script>
+    const PASSWORD = "chickencurry"; // 🔐 change this
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (input === PASSWORD) {
+        sessionStorage.setItem("authenticated", "true");
+        window.location.href = "app.html"; // 👉 go to chatbot page
+      } else {
+        error.style.display = "block";
+      }
+    }
+
+    // If already logged in, skip login page
+    if (sessionStorage.getItem("authenticated") === "true") {
+      window.location.href = "app.html";
+    }
+  </script>
+
+</body>
+</html>
